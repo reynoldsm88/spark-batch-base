@@ -7,7 +7,7 @@ import org.scalatest.{FlatSpec, Matchers}
 
 class SparkJobTestSuite extends FlatSpec with Matchers with SparkTestContext with DatasetComparer {
 
-    "this" should "work" in {
+    "Simple Spark SQL job" should "work" in {
         val sparkJob : SparkJob = new SparkJob( spark )
         val results : DataFrame = sparkJob.execute()
 
