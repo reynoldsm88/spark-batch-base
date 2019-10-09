@@ -8,7 +8,7 @@ object Dependencies {
     val betterFilesVersion = "3.8.0"
     val sparkVersion = "2.4.4"
     val sparkNlpVersion = "2.2.2"
-    val sparkFastTestVersion = "0.20.0-s_2.12"
+    val sparkFastTestVersion = "0.20.0-s_2.11"
 
     val logging = Seq( "org.slf4j" % "slf4j-api" % slf4jVersion,
                        "ch.qos.logback" % "logback-classic" % logbackVersion )

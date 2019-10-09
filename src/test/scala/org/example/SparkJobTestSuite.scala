@@ -7,7 +7,8 @@ import org.scalatest.FlatSpec
 class SparkJobTestSuite extends FlatSpec with SparkTestContext with DatasetComparer {
 
     "this" should "work" in {
-        assert( true == true )
+        val sparkJob : SparkJob = new SparkJob( spark )
+        sparkJob.execute()
     }
 
 }
