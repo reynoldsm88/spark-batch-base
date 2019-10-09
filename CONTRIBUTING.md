@@ -1,7 +1,7 @@
 # Contributing to the project
 
 ## Opening Issues
-Feel free to open issues, please create a new issue and prefix it with [SBT-BASE-XX] where XX is the GitHub issue number.
+Feel free to open issues, please create a new issue and prefix it with [SPARK-BATCH-BASE-XX] where XX is the GitHub issue number.
 
 ## Developer Workflow
 * Follow the GitHub flow, please only work in branches related to an issue number
