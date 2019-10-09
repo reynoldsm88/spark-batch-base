@@ -8,11 +8,7 @@ class SparkJob( val spark : SparkSession ) {
 
     def execute( ) : DataFrame = {
         val df = Seq( ("thurston", 61), ("kim", 66), ("lee", 63), ("steve", 57) ).toDF( "name", "age" )
-
-        val result = df.select( $"name", $"age" ).where( $"age" > 60 )
-
-        result.show()
-        result
+        df.select( $"name", $"age" ).where( $"age" > 60 ) // get all the people over 60
     }
 
 }

@@ -1,14 +1,18 @@
 package org.example
 
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
+import org.apache.spark.sql.DataFrame
 import org.example.test.utils.SparkTestContext
-import org.scalatest.FlatSpec
+import org.scalatest.{FlatSpec, Matchers}
 
-class SparkJobTestSuite extends FlatSpec with SparkTestContext with DatasetComparer {
+class SparkJobTestSuite extends FlatSpec with Matchers with SparkTestContext with DatasetComparer {
 
     "this" should "work" in {
         val sparkJob : SparkJob = new SparkJob( spark )
-        sparkJob.execute()
+        val results : DataFrame = sparkJob.execute()
+
+        results.show()
+        results.count() shouldBe 3
     }
 
 }
