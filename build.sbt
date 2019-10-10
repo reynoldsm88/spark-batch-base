@@ -6,6 +6,9 @@ name := "spark-batch-base"
 version in ThisBuild := "0.0.1-SNAPSHOT"
 scalaVersion in ThisBuild := "2.11.12"
 
+mainClass in(Compile, run) := Some( "Main" )
+enablePlugins( JavaAppPackaging )
+
 resolvers in ThisBuild ++= Seq( "Sonatype releases" at "https://oss.sonatype.org/content/repositories/releases",
                                 "Spray IO Repository" at "http://repo.spray.io/",
                                 "Maven Central" at "https://repo1.maven.org/maven2/",
@@ -15,3 +18,11 @@ resolvers in ThisBuild ++= Seq( "Sonatype releases" at "https://oss.sonatype.org
                                 "Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven" )
 
 lazy val root = ( project in file( "." ) ).settings( libraryDependencies ++= spark ++ sparkFastTests ++ sparkNlp ++ logging ++ scalaTest )
+
+
+test in assembly := {}
+assemblyMergeStrategy in assembly := {
+    case PathList( "META-INF", "MANIFEST.MF" ) => MergeStrategy.discard
+    case PathList( "reference.conf" ) => MergeStrategy.concat
+    case x => MergeStrategy.last
+}
