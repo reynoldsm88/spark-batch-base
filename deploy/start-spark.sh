@@ -1,3 +1,6 @@
 #!/bin/bash
 
-docker-compose -f spark-cluster.yml up -d
+PROJECT=$(cd $(dirname $0)/..; pwd)
+cd $PROJECT
+
+docker-compose -f deploy/spark-cluster.yml up -d
